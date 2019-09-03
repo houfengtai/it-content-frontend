@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import store from '../vuex/store'
-import indexPage from '@/components/HelloWorld'
-
 
 // https://github.com/mvpleung/vue-verify
 import vueVerify from '@mvpleung/verify'
@@ -23,12 +21,12 @@ Vue.use(VueRouter)
 const routes = [{
   path: '/',
   name: 'index',
-  component: indexPage
+  component: resolve => require(['@/components/home/index-page'], resolve)
 },
 {
   path: '/web/index',
   name: 'index',
-  component: indexPage
+  component: resolve => require(['@/components/home/index-page'], resolve)
 }
 ]
 const router = new VueRouter({

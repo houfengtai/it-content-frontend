@@ -11,5 +11,11 @@ Vue.config.productionTip = false
 new Vue({
   router,
   store,
-  render: h => h(App)
+  render: h => h(App),
+  mounted () {
+    try {
+      document.dispatchEvent(new Event('render-event'))
+    } catch (error) {
+    }
+  }
 }).$mount('#app')
