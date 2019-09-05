@@ -1,15 +1,18 @@
 <template>
   <div id="app">
     <router-view/>
+      <foot-page/>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
+import FootPage from '@/components/public/foot/foot-page'
 
 export default {
   name: 'app',
   components: {
+    FootPage
   },
   created () {
     this._addInterceptors()
@@ -82,7 +85,6 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin: 0px;
   padding:0px;

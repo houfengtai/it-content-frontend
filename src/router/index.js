@@ -18,16 +18,22 @@ Vue.use(VueRouter)
  * name 设定为小写
  * meta 中 requiresAuth 有值时 则表示需要登录
  */
-const routes = [{
-  path: '/',
-  name: 'index',
-  component: resolve => require(['@/components/home/index-page'], resolve)
-},
-{
-  path: '/web/index',
-  name: 'index',
-  component: resolve => require(['@/components/home/index-page'], resolve)
-}
+const routes = [
+  {
+    path: '/index',
+    name: 'index',
+    component: resolve => require(['@/components/home/index-page'], resolve)
+  },
+
+  {
+    path: '/',
+    name: 'index',
+    component: resolve => require(['@/components/home/index-page'], resolve)
+  },
+  {
+    path: '*',
+    component: resolve => require(['@/components/public/not-found'], resolve)
+  }
 ]
 const router = new VueRouter({
   mode: 'history',
