@@ -88,7 +88,9 @@ export default {
   color: #2c3e50;
   margin: 0px;
   padding:0px;
-    background: #f5f5f5;
+  background: #f5f5f5;
+  font-size:14px;
+  min-width:1200px;
 }
 body{
     margin: 0px;
