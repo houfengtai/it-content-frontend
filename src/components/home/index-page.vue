@@ -43,7 +43,7 @@ export default {
 .index-content{
     width:1200px;
     height:780px;
-    border:1px solid red;
-    margin: auto;
+    margin: auto  auto;
+    background: #fff;
 }
 </style>

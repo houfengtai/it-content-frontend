@@ -1,5 +1,6 @@
 <template>
     <div class="top-page">
+        <div class="left-line-gradual"></div>
         <div class="top-content">
             <div class="web-logo">
                 <img>
@@ -20,6 +21,7 @@
                 欢迎【少年的你】 | 退出
             </div>
         </div>
+        <div class="right-line-gradual"></div>
     </div>
 </template>
 
@@ -32,12 +34,28 @@ export default {
 
 <style scoped>
 .top-page{
-    min-height:100px;
+    min-height:80px;
+}
+.left-line-gradual{
+    float:left;
+    width:calc(50% - 600px);
+    height:80px;
+    border-bottom:1px transparent solid;
+    border-image:linear-gradient(to right,#f5f5f5,#23b7cb) 1 1;
+}
+.right-line-gradual{
+    float:left;
+    width:calc(50% - 600px);
+    height:80px;
+    border-bottom:1px transparent solid;
+    border-image:linear-gradient(to left,#f5f5f5,#23b7cb) 1 1;
 }
 .top-content{
+    float:left;
     width: 1200px;
     height:80px;
     margin: auto;
+    border-bottom:1px solid #23b7cb;
 }
 .top-nav{
     float:left;
