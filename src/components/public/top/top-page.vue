@@ -10,7 +10,7 @@
             </div>
             <div class="top-nav">
                 <ul>
-                    <li class="li-checked"><div>首页</div><div></div></li>
+                    <li :class="li-checked"><div>首页</div><div></div></li>
                     <li><div>题海</div><div></div></li>
                     <li><div>话题</div><div></div></li>
                     <li><div>投票</div><div></div></li>
@@ -28,93 +28,78 @@
 <script>
 export default {
   name: 'top-page',
-  props: ['selectIndex']
+  props: ['selectIndex'],
+  data () {
+    return {
+      navs: [
+        {
+          id: '1',
+          name: 'index',
+          label: '首页',
+          url: '/index'
+        },
+        {
+          id: '2',
+          name: 'exam',
+          label: '题海',
+          url: '/exam'
+        },
+        {
+          id: '3',
+          name: 'topic',
+          label: '话题',
+          url: ''
+        },
+        {
+          id: '4',
+          name: 'vote',
+          label: '投票',
+          url: ''
+        },
+        {
+          id: '5',
+          name: 'focus',
+          label: '关注',
+          url: ''
+        }
+      ],
+      userInfo: {
+        userName: '张三',
+        userImage: ''
+      },
+      isLogin: true
+    }
+  },
+  methods: {
+    _isShow () {
+      let name = this.$route.name
+      if (name === 'us') {
+        return false
+      }
+      return true
+    },
+    _selected (name) {
+      if (name === this.selectIndex) return 'selected'
+      return ''
+    },
+    _getUserInfo () {
+      let user = window.localStorage.getItem('userInfo')
+      if (user == null || user === '' || user === '{}') {
+        this.userInfo = {}
+        this.isLogin = false
+      } else {
+        this.userInfo = JSON.parse(user)
+        this.isLogin = true
+      }
+    }
+  },
+  mounted () {
+    this._getUserInfo()
+  }
+
 }
 </script>
 
-<style scoped>
-.top-page{
-    min-height:80px;
-}
-.left-line-gradual{
-    float:left;
-    width:calc(50% - 600px);
-    height:80px;
-    border-bottom:1px transparent solid;
-    border-image:linear-gradient(to right,#f5f5f5,#23b7cb) 1 1;
-}
-.right-line-gradual{
-    float:left;
-    width:calc(50% - 600px);
-    height:80px;
-    border-bottom:1px transparent solid;
-    border-image:linear-gradient(to left,#f5f5f5,#23b7cb) 1 1;
-}
-.top-content{
-    float:left;
-    width: 1200px;
-    height:80px;
-    margin: auto;
-    border-bottom:1px solid #23b7cb;
-}
-.top-nav{
-    float:left;
-    height: 40px;
-    margin-top:20px;
-}
-.top-nav ul{
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-.top-nav ul li{
-    display: inline-block;
-    float:left;
-    margin-right:20px;
-    height:40px;
-    line-height:40px;
-    font-size:16px;
-}
-.top-nav ul li div:nth-child(2){
-    height:2px;
-    width:0px;
-}
-.top-nav ul li:hover{
-    cursor: pointer;
-    color: #00c1dc;
-}
-.top-nav ul li:hover div:nth-child(2){
-    animation: nav-border-movie 0.3s ease-in-out 0s 1 alternate forwards;
-}
-
-.web-logo{
-    width:200px;
-    float:left;
-    margin-top:20px;
-    height: 40px;
-}
-.size-normal{
-    font-size: 18px;
-}
-.size-big{
-    font-size: 36px;
-}
-.top-user-info{
-    float:right;
-    height:40px;
-    margin-top:20px;
-    text-align: right;
-    line-height:40px;
-    font-size: 16px;
-}
-.top-nav ul li.li-checked{
-    color: #00c1dc;
-}
-.top-nav ul li.li-checked div:nth-child(2){
-    background:#00c1dc;width:100%;
-}
-@keyframes nav-border-movie {
-    form {background:none;width: 0px;}
-    to {background:#00c1dc;width:100%;}
-}
+<style lang="scss" scoped>
+    @import "./assets/scss/top-page.scss";
 </style>
