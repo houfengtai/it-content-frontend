@@ -96,4 +96,12 @@ body{
     margin: 0px;
     padding:0px;
 }
+  a{
+    text-decoration: none;
+    color: #2c3e50;
+  }
+  a:hover{
+    text-decoration: none;
+    color: #00c1dc;
+  }
 </style>

@@ -10,11 +10,7 @@
             </div>
             <div class="top-nav">
                 <ul>
-                    <li :class="li-checked"><div>首页</div><div></div></li>
-                    <li><div>题海</div><div></div></li>
-                    <li><div>话题</div><div></div></li>
-                    <li><div>投票</div><div></div></li>
-                    <li><div>关注</div><div></div></li>
+                    <li v-for="nav in navs" :key="nav.id" :class="_selected(nav.name)"><div><a :href="nav.url">{{nav.label}}</a></div><div></div></li>
                 </ul>
             </div>
             <div class="top-user-info">
