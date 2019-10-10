@@ -8,4 +8,4 @@
 *.min.js
 .babelrc
 /docker/*
-/public/js/
+/src/components/lottery/assets/js/awardRotate.js

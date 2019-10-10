@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <router-view/>
-      <foot-page/>
+    <foot-page/>
   </div>
 </template>
 
@@ -90,7 +90,6 @@ export default {
   padding:0px;
   background: #f5f5f5;
   font-size:14px;
-  min-width:1200px;
 }
 body{
     margin: 0px;

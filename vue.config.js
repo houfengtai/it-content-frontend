@@ -4,6 +4,7 @@ const Renderer = PrerenderSPAPlugin.PuppeteerRenderer
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
 const productionGzipExtensions = /\.(js|scss|css|json|txt|html|ico|svg)(\?.*)?$/i
 const IS_PROD = ['production', 'prod'].includes(process.env.NODE_ENV)
+// const webpack = require('webpack')
 
 module.exports = {
   publicPath: '/',
@@ -12,7 +13,7 @@ module.exports = {
     proxy: {
       '/api': {
         // 目标 API 地址
-        target: 'http://localhost:8081/',
+        target: 'http://localhost:8081/api/',
         // 如果要代理 websockets
         ws: true,
         changeOrigin: true, // 允许websockets跨域
@@ -75,6 +76,13 @@ module.exports = {
         })
       )
     }
+    /* plugins.push(
+      new webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery',
+        'windows.jQuery': 'jquery'
+      })
+    ) */
     config.plugins = [...config.plugins, ...plugins]
   },
   pluginOptions: {

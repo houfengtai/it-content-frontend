@@ -24,7 +24,6 @@ const routes = [
     name: 'index',
     component: resolve => require(['@/components/home/index-page'], resolve)
   },
-
   {
     path: '/',
     name: 'index',
